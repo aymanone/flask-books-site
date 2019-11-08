@@ -1,0 +1,17 @@
+{% extends 'layout.html'%}
+{% block title %}display{% endblock %}
+{% block body %}
+
+{% for row in result %}
+<h3>{{row.title}}   <a href="{{ url_for('book_info', isbn=row.isbn) }}">{{row.title}}</a></h3>
+{% else %}
+<h1> no result for your search
+
+
+{% endfor %}
+
+
+
+
+ {% endblock %}
+
