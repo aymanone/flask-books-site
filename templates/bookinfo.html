@@ -11,17 +11,23 @@
 <h1> avg from goodreads is {{avg}} and number of count is {{work_rev}}</h1>
 {% endif %}
 
-
+<textarea name="review"  rows="10" cols="50" form="usrform">Enter review here...</textarea><br>
 <form action="{{ url_for('book_info', title=title, author=author, year=year, isbn=isbn) }}" id="usrform" method="POST">
+<div class="form-group">
   Rating (between 1 and 5):
   <input type="number" name="rate" min="1" max="5" value="1" required>
   <input type="submit">
+    </div>
 </form>
-<textarea name="review"  rows="10" cols="50" form="usrform">Enter review here...</textarea><br>
+
 {% for i in reviews %}
-<textarea readonly>{{i.review}}</textarea> 
+<div class="card">
+<div class="card-body">
+<textarea readonly>{{i.review}}</textarea>
+</div>
 <h2> the rating for this review is {{i.rating}}</h2>
 <br>
+</div>
 
 {% endfor %}
 
